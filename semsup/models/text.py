@@ -44,7 +44,7 @@ class BertSemSup(SemSupModel):
             pretrained = self.args.pretrained_model,
         )
         # self.projection = nn.Linear(512, 512, bias=False)
-        self.projection = nn.Linear(128, 512, bias=False) # for multilingual
+        self.projection = nn.Linear(768, 512, bias=False) # for multilingual
         self.accuracy = torchmetrics.Accuracy()
         self.metrics = {"val_acc": self.accuracy}
 
