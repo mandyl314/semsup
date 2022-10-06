@@ -3,7 +3,7 @@ seed: 42
 model:
   args:
     pretrained_model: true
-    model: bert-base-multilingual-cased
+    model: dbmdz/bert-tiny-historic-multilingual-cased
     lr: 2e-5
 
 data:
