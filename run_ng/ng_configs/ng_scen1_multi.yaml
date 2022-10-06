@@ -5,12 +5,12 @@ name: ng_cc
 
 model:
   args:
-    label_model: dbmdz/bert-tiny-historic-multilingual-cased
+    label_model: bert-base-multilingual-cased
 
 data:
   args:
-    input_tokenizer: dbmdz/bert-tiny-historic-multilingual-cased
-    label_tokenizer: dbmdz/bert-tiny-historic-multilingual-cased
+    input_tokenizer: bert-base-multilingual-cased
+    label_tokenizer: bert-base-multilingual-cased
     train_label_json: ../class_descrs/newsgroups/combined_ng_manual_train.labels
     val_label_json: ../class_descrs/newsgroups/combined_ng_manual_val.labels
     cache_dir: "../data_cache"
