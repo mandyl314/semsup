@@ -11,8 +11,24 @@ import pytorch_lightning as pl
 import gensim.downloader
 from datasets import load_dataset, load_from_disk, ClassLabel
 from transformers import AutoTokenizer
-from torch.utils.data import DataLoader, IterableDataset
+from torch.utils.data import DataLoader, IterableDataset, Dataset
 from pytorch_lightning.trainer.supporters import CombinedLoader
+
+
+class RepeatedDataset(Dataset):
+    """ Dataset which wraps another dataset, repeating each entry `repetitions` number of times
+    """
+    def __init__(self, dataset:Dataset, repetitions:int):
+        assert repetitions > 0
+        self.dataset = dataset
+        self.repetitions = repetitions
+
+    def __len__(self):
+        return len(self.dataset) * self.repetitions
+
+    def __getitem__(self, index):
+        index %= len(self.dataset)
+        return self.dataset.__getitem__(index)
 
 
 class LabelDataset(IterableDataset):
@@ -35,7 +51,10 @@ class LabelDataset(IterableDataset):
         fused = defaultdict(list)
         for i in range(self.classlabels.num_classes):
             label = self.classlabels.int2str(i)
-            choice = int(np.random.choice(self.label_to_idx[label]))
+            try:
+                choice = int(np.random.choice(self.label_to_idx[label]))
+            except:
+                raise Exception(f"no choice for label: {label}")
             for k, v in self.dataset[choice].items():
                 fused[k].append(v)
         return {k: torch.stack(v) for k, v in fused.items()}
@@ -58,7 +77,9 @@ class SemSupDataArgs:
         label_max_len: maximum length of the label tokenizer
         overwrite_label_cache (bool): force overwrite the cache file even if it exists
         setup_glove_embeddings (bool): add a 'glove_emb' feature to the dataset during setup
+        setup_glove_for_json (bool): whether to construct a bov with a JSON input
         use_rand_embeddings (bool): when setting up "glove_emb" use random vectors instead. Ignored if setup_glove_embeddings is False
+        val_repetitions (int): number of times to iterate over the validation set
         run_test (bool): run test instances for the dataset
     """
 
@@ -71,7 +92,9 @@ class SemSupDataArgs:
     label_max_len: int = 128
     overwrite_label_cache: bool = False
     setup_glove_embeddings: bool = False
+    setup_glove_for_json: bool = False
     use_rand_embeddings: bool = False
+    val_repetitions: int = 1
     run_test: bool = False
 
     # these are automatically filled in for you in __post_init__()
@@ -191,26 +214,46 @@ class SemSupDataModule(pl.LightningDataModule):
             )
             val_label_dataset.save_to_disk(self.args.val_label_cache_path)
 
+    def _preprocess_json_for_glove(self, string):
+        "Convert json-like string to a bag of words for GLOVE embeddings"
+        def remove_from_str(s, to_remove):
+            for r in to_remove:
+                s = s.replace(r, "")
+            return s
+
+        words = []
+        string = string.strip().replace("_", " ")
+        string = remove_from_str(
+            string,
+            to_remove=":[],.;\n}{)("
+        )
+        for word in string.split():
+            words.append(word.lower())
+        return " ".join(list(set(words)))
+
     def _get_glove_embedding(self, sentence, glove_vectors):
+        if self.args.use_rand_embeddings:
+            return np.random.randn(300).astype(float)
+
         glove_vectors_keys = glove_vectors.key_to_index.keys()
         sum_of_embeddings = 0.0
         total = 0
         for word in sentence.strip().split():
-            word = word.lower()
+            word = word.lower().replace(":", "").replace(",", "").replace(".", "").replace(";", "")
             if word in glove_vectors_keys:
                 sum_of_embeddings += glove_vectors.vectors[
                     glove_vectors.get_index(word)
                 ]
                 total += 1
+        
         # Average the embeddings
-        # sum_of_embeddings /= len(sentence.strip().split())
+        if total == 0:
+            # there are some empty JSONs, this handles those cases.
+            return self._get_glove_embedding("none", glove_vectors)
+
         sum_of_embeddings /= total
-
-        if self.args.use_rand_embeddings:
-            return np.random.randn(300).astype(float)
-
         return np.array(sum_of_embeddings).astype(float)
-    
+
     def _setup_label_dataset(self, dataset, classlabel):
         label_to_idx = defaultdict(list)
         dataset.map(lambda x, i: label_to_idx[x["label"]].append(i), with_indices=True)
@@ -265,7 +308,7 @@ class SemSupDataModule(pl.LightningDataModule):
         return CombinedLoader(
             {
                 "input_loader": DataLoader(
-                    self.dataset["val"],
+                    RepeatedDataset(self.dataset["val"], repetitions=self.args.val_repetitions),
                     batch_size=self.val_batch_size,
                     num_workers=self.num_workers,
                 ),
