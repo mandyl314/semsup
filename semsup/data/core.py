@@ -210,7 +210,7 @@ class SemSupDataModule(pl.LightningDataModule):
             return np.random.randn(300).astype(float)
 
         return np.array(sum_of_embeddings).astype(float)
-
+    
     def _setup_label_dataset(self, dataset, classlabel):
         label_to_idx = defaultdict(list)
         dataset.map(lambda x, i: label_to_idx[x["label"]].append(i), with_indices=True)
@@ -221,9 +221,14 @@ class SemSupDataModule(pl.LightningDataModule):
 
         if self.args.setup_glove_embeddings:
             glove_vectors = gensim.downloader.load("glove-wiki-gigaword-300")
-            dataset = dataset.map(
-                lambda x: {"glove_emb": self._get_glove_embedding(x["text"], glove_vectors)}
-            )
+            if self.args.setup_glove_for_json:
+                dataset = dataset.map(
+                    lambda x: {"glove_emb": self._get_glove_embedding(
+                        self._preprocess_json_for_glove(x["text"]), glove_vectors
+                    )}
+                )
+            else:
+                dataset = dataset.map(lambda x: {"glove_emb": self._get_glove_embedding(x["text"], glove_vectors)})
             dataset.set_format(type="torch", columns=keep_columns + ["glove_emb"])
         else:
             dataset.set_format(type="torch", columns=keep_columns)
