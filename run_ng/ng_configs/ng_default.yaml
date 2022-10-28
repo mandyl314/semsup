@@ -3,7 +3,7 @@ seed: 42
 model:
   args:
     pretrained_model: true
-    model: distilbert-base-multilingual-cased
+    model: bert-base-multilingual-uncased
     lr: 2e-5
 
 data:

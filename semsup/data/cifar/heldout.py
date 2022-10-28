@@ -162,7 +162,7 @@ class CIFARHeldoutDM(CIFAR100DataModule):
 if __name__ == "__main__":
     # unit tests
     data_args = CIFARHeldoutDataArgs(
-        label_tokenizer="distilbert-base-multilingual-cased",
+        label_tokenizer="bert-base-multilingual-uncased",
         train_label_json="../class_descrs/cifar/google_cifar100_autoclean.labels",
         cache_dir="../data_cache",
     )

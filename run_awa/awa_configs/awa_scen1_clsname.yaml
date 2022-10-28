@@ -6,10 +6,10 @@ seed: 42
 
 model:
   args:
-    label_model: distilbert-base-multilingual-cased
+    label_model: bert-base-multilingual-uncased
 
 data:
   args:
     label_max_len: 64
-    label_tokenizer: distilbert-base-multilingual-cased
+    label_tokenizer: bert-base-multilingual-uncased
     train_label_json: ../class_descrs/awa/awa_clsnames.labels
