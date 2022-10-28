@@ -50,7 +50,12 @@ class BertSemSup(SemSupModel):
 
     def forward(self, batch, label_rep):
         targets = batch.pop("labels")
-        input_rep = self.model(**batch).pooler_output  # (bs, d_model)
+        #input_rep = self.model(**batch).pooler_output  # (bs, d_model)
+        
+        input_rep = self.label_model(**batch)
+        input_rep = input_rep[0]  # (bs, seq_len, dim)
+        input_rep = input_rep[:, 0]
+            
         input_rep = self.projection(input_rep)
         logits = input_rep @ label_rep  # (bs, n_class)
         loss = F.cross_entropy(input=logits, target=targets)
