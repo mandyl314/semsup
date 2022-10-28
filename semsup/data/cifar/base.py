@@ -137,7 +137,7 @@ class CIFAR100DataModule(SemSupDataModule):
 if __name__ == "__main__":
     # unit tests
     data_args = CIFARDataArgs(
-        label_tokenizer="prajjwal1/bert-small",
+        label_tokenizer="distilbert-base-multilingual-cased",
         train_label_json="../class_descrs/cifar/google_cifar100_autoclean.labels",
         cache_dir="../data_cache",
     )

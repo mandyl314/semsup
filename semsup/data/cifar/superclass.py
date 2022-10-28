@@ -257,7 +257,7 @@ class CIFARSuperClassDM(CIFAR100DataModule):
 if __name__ == "__main__":
     # unit tests
     data_args = CIFARSuperClassDataArgs(
-        label_tokenizer="prajjwal1/bert-small",
+        label_tokenizer="distilbert-base-multilingual-cased",
         train_label_json="../class_descrs/cifar/google_cifar100_autoclean.labels",
         val_label_json="../class_descrs/cifar/cifar100_superclass_eval_labels.labels",
         cache_dir="../data_cache",

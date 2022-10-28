@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
     data_args = NewsgroupsDataArgs(
         input_tokenizer="bert-base-uncased",
-        label_tokenizer="prajjwal1/bert-small",
+        label_tokenizer="distilbert-base-multilingual-cased",
         train_label_json="../class_descrs/newsgroups/ng_base.labels",
         cache_dir="../data_cache",
     )
