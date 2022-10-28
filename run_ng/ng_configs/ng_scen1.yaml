@@ -14,4 +14,3 @@ data:
     train_label_json: ../class_descrs/newsgroups/combined_ng_manual_train.labels
     val_label_json: ../class_descrs/newsgroups/combined_ng_manual_val.labels
     cache_dir: "../data_cache"
-    overwrite_label_cache: true

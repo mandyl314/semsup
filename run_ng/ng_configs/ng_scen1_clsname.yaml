@@ -9,7 +9,7 @@ model:
 
 data:
   args:
-    input_tokenizer: distilbert-base-multilingual-cased
+    input_tokenizer: prajjwal1/bert-small
     label_tokenizer: distilbert-base-multilingual-cased
     train_label_json: ../class_descrs/newsgroups/ng_classnames.labels
     cache_dir: "../data_cache"
