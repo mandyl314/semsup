@@ -6,10 +6,10 @@ name: cifar_heldout_clsname
 
 model:
   args:
-    label_model: bert-base-multilingual-uncased
+    label_model: distilbert-base-multilingual-cased
 
 data:
   args:
-    label_tokenizer: bert-base-multilingual-uncased
+    label_tokenizer: distilbert-base-multilingual-cased
     train_label_json: ../class_descrs/cifar/cifar_classnames_notemplate.labels
     cache_dir: "../data_cache"

@@ -15,5 +15,5 @@ VAL_DESCRIPTIONS=../../class_descrs/rcv1/rcv1_only_class_name_no_template.json
 TEST_DESCRIPTIONS=../../class_descrs/rcv1/rcv1_only_class_name_no_template_bert.json
 
 # Run the command
-MODEL_NAME="bert-base-multilingual-uncased"
+MODEL_NAME="distilbert-base-multilingual-cased"
 $DEFAULT_COMMAND --model_name_or_path $MODEL_NAME --label_model_name_or_path $MODEL_NAME --train_file $TRAIN_FILE --validation_file $VALIDATION_FILE --test_file $TEST_FILE --label_descriptions_train_file $TRAIN_DESCRIPTIONS --label_descriptions_validation_file $VAL_DESCRIPTIONS --label_descriptions_test_file $TEST_DESCRIPTIONS

@@ -6,11 +6,11 @@ name: awa_nl_heldout
 data:
   args:
     label_max_len: 128
-    label_tokenizer: bert-base-multilingual-uncased
+    label_tokenizer: distilbert-base-multilingual-cased
     train_label_json: ../class_descrs/awa/google_awa_manual_train.labels
     val_label_json: ../class_descrs/awa/google_awa_manual_train.labels
 
 model:
   args:
-    label_model: bert-base-multilingual-uncased
+    label_model: distilbert-base-multilingual-cased
     image_type: awa
