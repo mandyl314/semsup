@@ -90,7 +90,8 @@ class SemSupDataArgs:
     train_classes: tuple = None
     val_classes: tuple = None
     label_max_len: int = 128
-    overwrite_label_cache: bool = False
+    # overwrite_label_cache: bool = False
+    overwrite_label_cache: bool = True
     setup_glove_embeddings: bool = False
     setup_glove_for_json: bool = False
     use_rand_embeddings: bool = False
