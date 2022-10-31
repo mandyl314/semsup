@@ -49,6 +49,7 @@ class BertSemSup(SemSupModel):
 
     def forward(self, batch, label_rep):
         targets = batch.pop("labels")
+        batch.pop("token_type_ids")
         
         #input_rep = self.model(**batch).pooler_output  # (bs, d_model)
         input_rep = self.model(**batch)
