@@ -44,14 +44,13 @@ class BertSemSup(SemSupModel):
             pretrained = self.args.pretrained_model,
         )
         self.projection = nn.Linear(512, 512, bias=False)
-        #self.projection = nn.Linear(768, 512, bias=False) # for multilingual
         self.accuracy = torchmetrics.Accuracy()
         self.metrics = {"val_acc": self.accuracy}
 
     def forward(self, batch, label_rep):
         targets = batch.pop("labels")
+        
         #input_rep = self.model(**batch).pooler_output  # (bs, d_model)
-        print(batch)
         input_rep = self.model(**batch)
         input_rep = input_rep[0]  # (bs, seq_len, dim)
         input_rep = input_rep[:, 0] # (bs, dim)
@@ -101,6 +100,7 @@ class DEVISEBaseline(BaseModel):
 
         batch = batch["input_loader"]
         targets = batch.pop("labels")
+        batch.pop("token_type_ids")
         # input_rep = self.model(**batch).pooler_output  # (bs, d_model)
         
         input_rep = self.model(**batch)
