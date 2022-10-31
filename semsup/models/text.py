@@ -51,7 +51,7 @@ class BertSemSup(SemSupModel):
     def forward(self, batch, label_rep):
         targets = batch.pop("labels")
         #input_rep = self.model(**batch).pooler_output  # (bs, d_model)
-        
+        print(batch)
         input_rep = self.model(**batch)
         input_rep = input_rep[0]  # (bs, seq_len, dim)
         input_rep = input_rep[:, 0] # (bs, dim)
