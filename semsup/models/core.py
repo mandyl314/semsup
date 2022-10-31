@@ -156,7 +156,7 @@ class SemSupModel(BaseModel):
             
             output = self.label_model(**label_batch)
             hidden_state = output[0]  # (bs, seq_len, dim)
-            label_rep = hidden_state[:, 0]
+            label_rep = hidden_state[:, 0] # (bs, dim)
             
             label_rep = label_rep.t()  # (d_model, n_class)
         return self(batch["input_loader"], label_rep)

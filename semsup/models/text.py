@@ -54,7 +54,7 @@ class BertSemSup(SemSupModel):
         
         input_rep = self.model(**batch)
         input_rep = input_rep[0]  # (bs, seq_len, dim)
-        input_rep = input_rep[:, 0]
+        input_rep = input_rep[:, 0] # (bs, dim)
             
         input_rep = self.projection(input_rep)
         logits = input_rep @ label_rep  # (bs, n_class)
@@ -101,7 +101,12 @@ class DEVISEBaseline(BaseModel):
 
         batch = batch["input_loader"]
         targets = batch.pop("labels")
-        input_rep = self.model(**batch).pooler_output  # (bs, d_model)
+        # input_rep = self.model(**batch).pooler_output  # (bs, d_model)
+        
+        input_rep = self.model(**batch)
+        input_rep = input_rep[0]  # (bs, seq_len, dim)
+        input_rep = input_rep[:, 0] # (bs, dim)
+        
         input_rep = self.projection(input_rep) # (bs, 300)
         
         if self.args.use_gile:
