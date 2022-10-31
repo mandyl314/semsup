@@ -55,7 +55,7 @@ class BertSemSup(SemSupModel):
         input_rep = self.model(**batch)
         input_rep = input_rep[0]  # (bs, seq_len, dim)
         print(input_rep.shape)
-        input_rep = input_rep[:, 0] # (bs, dim)
+        input_rep = input_rep[:,:,0] # (bs, dim)
         print(input_rep.shape)
             
         input_rep = self.projection(input_rep)
