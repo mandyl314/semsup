@@ -53,7 +53,6 @@ class BertSemSup(SemSupModel):
         
         #input_rep = self.model(**batch).pooler_output  # (bs, d_model)
         input_rep = self.model(**batch)
-        print(input_rep.shape)
         input_rep = input_rep[0]  # (bs, seq_len, dim)
         print(input_rep.shape)
         input_rep = input_rep[:, 0] # (bs, dim)
