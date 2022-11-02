@@ -1,7 +1,7 @@
 ModelCls: BertSemSup
 DataCls: NewsgroupsSuperClassDM
 
-name: ng_super_sp
+name: ng_super_both_sp
 
 model:
   args:

@@ -1,7 +1,7 @@
 ModelCls: BertSemSup
 DataCls: NewsgroupsHeldoutDM
 
-name: ng_heldout_sp
+name: ng_heldout_both_sp
 
 model:
   args:
