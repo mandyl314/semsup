@@ -1,7 +1,7 @@
 ModelCls: BertSemSup
 DataCls: NewsgroupsDataModule
 
-name: ng_cc
+name: ng_cc_sp
 
 model:
   args:
