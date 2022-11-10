@@ -43,7 +43,8 @@ class BertSemSup(SemSupModel):
             model = self.args.model,
             pretrained = self.args.pretrained_model,
         )
-        self.projection = nn.Linear(512, 512, bias=False)
+        # self.projection = nn.Linear(512, 512, bias=False)
+        self.projection = nn.Linear(768, 768, bias=False)
         self.accuracy = torchmetrics.Accuracy()
         self.metrics = {"val_acc": self.accuracy}
 
@@ -57,10 +58,10 @@ class BertSemSup(SemSupModel):
         # print(input_rep.shape)
         input_rep = input_rep[:,0] # (bs, dim)
         print(input_rep.shape)
+        print(label_rep.shape)
             
         input_rep = self.projection(input_rep)
         print(input_rep.shape)
-        print(label_rep.shape)
         logits = input_rep @ label_rep  # (bs, n_class)
         loss = F.cross_entropy(input=logits, target=targets)
         return logits, targets, loss
