@@ -57,11 +57,11 @@ class BertSemSup(SemSupModel):
         input_rep = input_rep[0]  # (bs, seq_len, dim)
         # print(input_rep.shape)
         input_rep = input_rep[:,0] # (bs, dim)
-        print(input_rep.shape)
-        print(label_rep.shape)
+        # print(input_rep.shape)
+        # print(label_rep.shape)
             
         input_rep = self.projection(input_rep)
-        print(input_rep.shape)
+        # print(input_rep.shape)
         logits = input_rep @ label_rep  # (bs, n_class)
         loss = F.cross_entropy(input=logits, target=targets)
         return logits, targets, loss

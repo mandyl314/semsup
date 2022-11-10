@@ -5,9 +5,9 @@ CONFIG_FOLDER="./ng_configs"
 RUN_SCRIPT="../run.py"
 
 commands=(
-    "python $RUN_SCRIPT --config $CONFIG_FOLDER/ng_scen3.yaml"
-    # "python $RUN_SCRIPT --config $CONFIG_FOLDER/ng_scen2.yaml"
-    # "python $RUN_SCRIPT --config $CONFIG_FOLDER/ng_scen1.yaml"
+    "python $RUN_SCRIPT --config $CONFIG_FOLDER/ng_scen1.yaml"
+    "python $RUN_SCRIPT --config $CONFIG_FOLDER/ng_scen2.yaml"
+    # "python $RUN_SCRIPT --config $CONFIG_FOLDER/ng_scen3.yaml"
 )
 ARGS="--train --default_config $CONFIG_FOLDER/ng_default.yaml --seed $SEED --name_suffix s$SEED"
 
