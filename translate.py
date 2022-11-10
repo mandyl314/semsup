@@ -20,7 +20,7 @@ with open(english_data_path) as f:
 for json_str in chunks:
     # if(i%4 !=0):
     #     continue
-    json_str = chunks[i]+chunks[i+1]+chunks[i+2]+chunks[i+3]
+    # json_str = chunks[i]+chunks[i+1]+chunks[i+2]+chunks[i+3]
     dict = json.loads(json_str)
     translated_text = translator.translate(dict['text'], src='en',dest='es')
     translated_text.text = translated_text.text.replace('"',"'")
