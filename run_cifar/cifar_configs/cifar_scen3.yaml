@@ -2,7 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFARSuperClassDM
 
 seed: 42
-name: cifar_super_sp
+name: cifar_super_sp_both
 
 model:
   args:
