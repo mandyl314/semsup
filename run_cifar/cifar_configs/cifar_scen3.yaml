@@ -2,7 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFARSuperClassDM
 
 seed: 42
-name: cifar_super_sp_both
+name: cifar_super
 
 model:
   args:
@@ -11,6 +11,6 @@ model:
 data:
   args:
     label_tokenizer: distilbert-base-multilingual-cased
-    train_label_json: ../class_descrs/class_descrs_spanish/cifar/combined_cifar100_manual_train.labels
-    val_label_json: ../class_descrs/class_descrs_spanish/cifar/google_cifar_super_manual_train.labels
+    train_label_json: ../class_descrs/cifar/combined_cifar100_manual_train.labels
+    val_label_json: ../class_descrs/cifar/google_cifar_super_manual_train.labels
     cache_dir: "../data_cache"
