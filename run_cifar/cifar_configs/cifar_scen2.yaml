@@ -2,7 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFARHeldoutDM
 
 seed: 42
-name: cifar_heldout_sp_both
+name: cifar_heldout_check
 
 model:
   args:
