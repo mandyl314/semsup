@@ -2,7 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFAR100DataModule
 
 seed: 42
-name: cifar_cc_sp
+name: cifar_cc_sp_overwrite
 
 model:
   args:
