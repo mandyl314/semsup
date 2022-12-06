@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data_dir="./class_descrs/newsgroups"
+data_dir="./class_descrs/newsgroup"
 # data_dir="./class_descrs/class_descrs_chinese/newsgroups"
 output="./class_descrs/class_descrs_spanish2/newsgroups"
 for entry in "$data_dir"/*

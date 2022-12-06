@@ -1,7 +1,7 @@
 ModelCls: BertSemSup
 DataCls: NewsgroupsSuperClassDM
 
-name: ng_super_chinese_both
+name: ng_super_ch2
 
 model:
   args:
