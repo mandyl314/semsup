@@ -12,5 +12,5 @@ data:
   args:
     label_tokenizer: distilbert-base-multilingual-cased
     train_label_json: ../class_descrs/cifar/combined_cifar100_manual_train.labels
-    val_label_json: ../class_descrs/class_descrs_spanish2/cifar/combined_cifar100_manual_val.labels
+    val_label_json: ../class_descrs/class_descrs_chinese/cifar/combined_cifar100_manual_val.labels
     cache_dir: "../data_cache"
