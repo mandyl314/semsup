@@ -2,7 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFARHeldoutDM
 
 seed: 42
-name: cifar_heldout_check
+name: cifar_heldout_eng_ch
 
 model:
   args:
@@ -12,5 +12,5 @@ data:
   args:
     label_tokenizer: distilbert-base-multilingual-cased
     train_label_json: ../class_descrs/cifar/combined_cifar100_manual_train.labels
-    val_label_json: ../class_descrs/cifar/combined_cifar100_manual_train.labels
+    val_label_json: ../class_descrs/class_descrs_chinese/cifar/combined_cifar100_manual_train.labels
     cache_dir: "../data_cache"
