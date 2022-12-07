@@ -6,8 +6,8 @@ CONFIG_FOLDER="./cifar_configs"
 
 commands=(
     # "python $RUN_SCRIPT --config $CONFIG_FOLDER/cifar_scen1.yaml"
-    # "python $RUN_SCRIPT --config $CONFIG_FOLDER/cifar_scen2.yaml"
-    "python $RUN_SCRIPT --config $CONFIG_FOLDER/cifar_scen3.yaml"
+    "python $RUN_SCRIPT --config $CONFIG_FOLDER/cifar_scen2.yaml"
+    # "python $RUN_SCRIPT --config $CONFIG_FOLDER/cifar_scen3.yaml"
 )
 ARGS="--train --default_config $CONFIG_FOLDER/cifar_default.yaml --seed $SEED --name_suffix s$SEED"
 
