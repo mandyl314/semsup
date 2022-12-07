@@ -2,7 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFAR100DataModule
 
 seed: 42
-name: cifar_cc_sp_utf8
+name: cifar_cc_eng_ch
 
 model:
   args:

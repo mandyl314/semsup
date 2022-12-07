@@ -22,8 +22,8 @@ for json_str in chunks:
 #     json_str = chunks[i]+chunks[i+1]+chunks[i+2]+chunks[i+3]
     
     dict = json.loads(json_str)
-    translated_text = translator.translate(dict['text'], src='en',dest='es')
-    # translated_text = translator.translate(dict['text'], src='en',dest='zh-cn')
+    # translated_text = translator.translate(dict['text'], src='en',dest='es')
+    translated_text = translator.translate(dict['text'], src='en',dest='zh-cn')
     translated_text.text = translated_text.text.replace('"',"'")
     translated = {"text": translated_text.text, "label": dict['label']}
     json_string = json.dumps(translated, ensure_ascii=False).encode('utf8')
