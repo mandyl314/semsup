@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# data_dir="./class_descrs/cifar"
-data_dir="./class_descrs/class_descrs_chinese/cifar"
+# data_dir="./class_descrs/newsgroups"
+data_dir="./class_descrs/class_descrs_spanish2/newsgroups"
 output="./class_descrs/class_descrs_chinese/cifar"
 for entry in "$data_dir"/*
 do
