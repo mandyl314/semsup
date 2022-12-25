@@ -7,9 +7,9 @@ data_dir="./class_descrs/cifar/google_cifar100_autoclean.labels"
 output="/content/"
 for entry in "$data_dir"/*
 do
-    # FILENAME=$(echo "$entry" | sed "s/.*\///")
-    # out_path="$output/$FILENAME"
-    # python3 translate.py "$entry" >> $out_path
+    FILENAME=$(echo "$entry" | sed "s/.*\///")
+    out_path="$output/$FILENAME"
+    python3 translate.py "$entry" >> $out_path
 
-    wc -l $entry
+    # wc -l $entry
 done
