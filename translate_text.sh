@@ -9,7 +9,8 @@ for entry in "$data_dir"/*
 do
     FILENAME=$(echo "$entry" | sed "s/.*\///")
     out_path="$output/$FILENAME"
-    python3 translate.py "$entry" > $out_path
+    # python3 translate.py "$entry" > $out_path
+    python3 translate.py "$entry"
 
     # wc -l $entry
 done
