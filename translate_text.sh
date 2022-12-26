@@ -1,24 +1,13 @@
 #!/bin/bash
 
-# data_dir="./class_descrs/cifar"
-# data_dir="./class_descrs/class_descrs_spanish/cifar"
-# output="./class_descrs/class_descrs_spanish/cifar"
-# for entry in "$data_dir"/*
-# do
-#     FILENAME=$(echo "$entry" | sed "s/.*\///")
-#     out_path="$output/$FILENAME"
-#     python3 translate.py "$entry" >> $out_path
+data_dir="./class_descrs/newsgroups"
+# data_dir="./class_descrs/class_descrs_russian/newsgroups"
+output="./class_descrs/class_descrs_russian/newsgroups"
+for entry in "$data_dir"/*
+do
+    FILENAME=$(echo "$entry" | sed "s/.*\///")
+    out_path="$output/$FILENAME"
+    python3 translate.py "$entry" > $out_path
 
-#     # wc -l $entry
-# done
-
-# data_dir="./class_descrs/cifar"
-# data_dir="./class_descrs/class_descrs_spanish/cifar"
-entry="./class_descrs/cifar/google_cifar100_autoclean.labels"
-# output="./class_descrs/class_descrs_spanish/cifar"
-output="/content/semsup"
-
-FILENAME=$(echo "$entry" | sed "s/.*\///")
-out_path="$output/$FILENAME"
-# python3 translate.py "$entry" > $out_path
-python3 translate.py "$entry"
+    wc -l $entry
+done
