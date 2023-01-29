@@ -17,7 +17,6 @@ setuptools.setup(
         'scikit-learn==1.0',
         'gensim==4.1.2',
         'jsonargparse==4.1.0',
-        'wandb==0.12.9',
-        'python==3.9.7'
+        'wandb==0.12.9'
     ],
 )
