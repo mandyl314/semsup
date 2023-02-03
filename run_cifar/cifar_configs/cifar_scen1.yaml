@@ -2,11 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFAR100DataModule
 
 seed: 42
-<<<<<<< HEAD
-name: cifar_cc_eng_ar
-=======
 name: cifar_cc_rus2
->>>>>>> parent of 6d405de (1)
 
 model:
   args:
@@ -15,11 +11,6 @@ model:
 data: 
   args:
     label_tokenizer: distilbert-base-multilingual-cased
-<<<<<<< HEAD
-    train_label_json: ../class_descrs/cifar/combined_cifar100_manual_train.labels
-    val_label_json: ../class_descrs/class_descrs_arabic/cifar/combined_cifar100_manual_val.labels
-=======
     train_label_json: ../class_descrs/class_descrs_russian/cifar/combined_cifar100_manual_train.labels
     val_label_json: ../class_descrs/class_descrs_russian/cifar/combined_cifar100_manual_val.labels
->>>>>>> parent of 6d405de (1)
     cache_dir: "../data_cache"

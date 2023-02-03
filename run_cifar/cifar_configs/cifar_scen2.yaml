@@ -2,11 +2,7 @@ ModelCls: ResNetSemSup
 DataCls: CIFARHeldoutDM
 
 seed: 42
-<<<<<<< HEAD
-name: cifar_heldout_eng_ar
-=======
 name: cifar_heldout_rus2
->>>>>>> parent of 8c0a9bf (arabic)
 
 model:
   args:
@@ -15,11 +11,6 @@ model:
 data:
   args:
     label_tokenizer: distilbert-base-multilingual-cased
-<<<<<<< HEAD
-    train_label_json: ../class_descrs/cifar/combined_cifar100_manual_train.labels
-    val_label_json: ../class_descrs/class_descrs_arabic/cifar/combined_cifar100_manual_train.labels
-=======
     train_label_json: ../class_descrs/class_descrs_russian/cifar/combined_cifar100_manual_train.labels
     val_label_json: ../class_descrs/class_descrs_russian/cifar/combined_cifar100_manual_train.labels
->>>>>>> parent of 8c0a9bf (arabic)
     cache_dir: "../data_cache"
