@@ -10,7 +10,7 @@ data:
   args:
     input_max_len: 512
   num_workers: 1
-  batch_size: 8
+  batch_size: 16
 
 logger:
   project: "semsup"
