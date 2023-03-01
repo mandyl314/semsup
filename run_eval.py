@@ -74,6 +74,7 @@ if __name__ == "__main__":
             cfg.model = ModelCls.load_from_checkpoint(ckpt)
             if cfg.validate:
                 output = cfg.trainer.validate(cfg.model, cfg.data, verbose=False)
+                print(output)
                 accuracies.append(output[0]["val_acc"])
         print(f"acc: {np.mean(accuracies)} +/- {np.std(accuracies)}")            
     else:
