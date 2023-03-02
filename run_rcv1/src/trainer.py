@@ -441,5 +441,8 @@ class RCV1TrainerLabelDescriptions(Trainer):
         logits = nested_detach(logits)
         if len(logits) == 1:
             logits = logits[0]
+            
+        print("HERE2!!!")
+        print(labels);
 
         return (loss, logits, labels)
