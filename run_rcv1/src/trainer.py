@@ -382,9 +382,6 @@ class RCV1TrainerLabelDescriptions(Trainer):
         for key in list(metrics.keys()):
             if not key.startswith(f"{metric_key_prefix}_"):
                 metrics[f"{metric_key_prefix}_{key}"] = metrics.pop(key)
-                
-        print("HERE!!!!!")
-        print(all_preds);
 
         return EvalLoopOutput(predictions=all_preds, label_ids=all_labels, metrics=metrics, num_samples=num_samples)
 
@@ -441,8 +438,5 @@ class RCV1TrainerLabelDescriptions(Trainer):
         logits = nested_detach(logits)
         if len(logits) == 1:
             logits = logits[0]
-            
-        print("HERE2!!!")
-        print(labels);
 
         return (loss, logits, labels)
