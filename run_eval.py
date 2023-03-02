@@ -66,16 +66,22 @@ if __name__ == "__main__":
     args.trainer.callbacks = []
     args.trainer.progress_bar_refresh_rate = 0
     cfg.trainer = pl.Trainer(**args.trainer.as_dict())
+    
+    print("HEREEEEEEE1")
 
     if args.checkpoints:
+        print("HEREEEEEEE2")
         accuracies = []
         print(f"eval {len(args.checkpoints)} checkpoints")
         for ckpt in args.checkpoints:
+            print("HEREEEEEEE3")
             cfg.model = ModelCls.load_from_checkpoint(ckpt)
             if cfg.validate:
+                print("HEREEEEEEE4")
                 output = cfg.trainer.validate(cfg.model, cfg.data, verbose=False)
                 accuracies.append(output[0]["val_acc"])
         print(f"acc: {np.mean(accuracies)} +/- {np.std(accuracies)}")            
     else:
+        print("HEREEEEEEE5")
         output = cfg.trainer.validate(cfg.model, cfg.data, verbose=False)
         print(f"acc: {output[0]['val_acc']}")
