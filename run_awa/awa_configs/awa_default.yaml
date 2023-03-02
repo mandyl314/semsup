@@ -3,7 +3,7 @@ seed: 42
 model:
   args:
     pretrained_model: true
-    label_model: huggingface/CodeBERTa-small-v1
+    label_model: distilbert-base-multilingual-cased
     image_type: awa
     lr: 2e-5
     adam_epsilon: 1e-6
@@ -11,10 +11,10 @@ model:
 
 data:
   num_workers: 8
-  batch_size: 32
+  batch_size: 16
   args:
     label_max_len: 256
-    label_tokenizer: huggingface/CodeBERTa-small-v1
+    label_tokenizer: distilbert-base-multilingual-cased
     cache_dir: "../data_cache"
 
 logger:

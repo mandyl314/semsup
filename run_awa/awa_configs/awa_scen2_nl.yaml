@@ -1,7 +1,7 @@
 ModelCls: ResNetSemSup
 DataCls: AWAHeldoutDM
 
-name: awa_nl_heldout
+name: awa_nl_heldout_eng
 
 data:
   args:
