@@ -30,7 +30,7 @@ for i,json_str in enumerate(chunks):
     
     dict = json.loads(json_str)
     # translated_text = translator.translate(dict['text'], src='en',dest='ru')
-    translated_text = translator.translate(dict['text'], src='en',dest='ar')
+    translated_text = translator.translate(dict['text'], src='en',dest='es')
     # translated_text = translator.translate(dict['text'], src='en',dest='es')
     # translated_text = translator.translate(dict['text'], src='en',dest='zh-cn')
     translated_text.text = translated_text.text.replace('"',"'")

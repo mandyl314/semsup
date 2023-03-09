@@ -1,14 +1,14 @@
 ModelCls: ResNetSemSup
 DataCls: AWAHeldoutDM
 
-name: awa_nl_heldout_eng2
+name: awa_nl_heldout_sp2
 
 data:
   args:
     label_max_len: 128
     label_tokenizer: distilbert-base-multilingual-cased
-    train_label_json: ../class_descrs/awa/google_awa_manual_train.labels
-    val_label_json: ../class_descrs/awa/google_awa_manual_train.labels
+    train_label_json: ../class_descrs/class_descrs_spanish/awa/google_awa_manual_train.labels
+    val_label_json: ../class_descrs/class_descrs/spanish/awa/google_awa_manual_train.labels
 
 model:
   args:
