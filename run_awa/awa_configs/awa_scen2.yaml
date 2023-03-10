@@ -1,9 +1,9 @@
 ModelCls: ResNetSemSup
 DataCls: AWAHeldoutDM
 
-name: awa_heldout_sp2
+name: awa_heldout_eng_sp
 
 data:
   args:
-    train_label_json: ../class_descrs/class_descrs_spanish/awa/large_files/awa_deep_samp50_perm25_train.labels
+    train_label_json: ../class_descrs/awa/large_files/awa_deep_samp50_perm25_train.labels
     val_label_json: ../class_descrs/class_descrs_spanish/awa/large_files/awa_deep_samp50_perm25_train.labels
