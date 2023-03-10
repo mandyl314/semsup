@@ -1,7 +1,7 @@
 ModelCls: ResNetSemSup
 DataCls: AWADataModule
 
-name: awa_cc_sp2
+name: awa_cc_eng_sp
 
 data:
   args:
