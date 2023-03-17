@@ -9,7 +9,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     python_requires='>=3.7',
     install_requires=[
-        'torch==1.9.1',
+        'torch==1.11',
         'pytorch-lightning==1.4.9',
         'torchvision==0.10.1',
         'transformers==4.11.3',
