@@ -76,6 +76,7 @@ if __name__ == "__main__":
                 output = cfg.trainer.validate(cfg.model, cfg.data, verbose=False)
                 # script that 
                 accuracies.append(output[0]["val_acc"])
+            print(cfg.data)
             pred = cfg.model(cfg.data)
             print(pred)
         print(f"acc: {np.mean(accuracies)} +/- {np.std(accuracies)}")            
