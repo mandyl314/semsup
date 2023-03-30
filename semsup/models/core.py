@@ -14,6 +14,7 @@ from transformers import (
 )
 import pytorch_lightning as pl
 from typing import Union
+from torch.utils.data import DataLoader
 
 
 def get_text_model(
@@ -92,6 +93,8 @@ class BaseModel(pl.LightningModule):
             targets (Any): the targets
             loss (Any): the loss
         """
+        print("here in forward")
+        print(batch)
         raise NotImplementedError
 
     def step(self, batch):
@@ -122,6 +125,9 @@ class BaseModel(pl.LightningModule):
         for name, metric in self.metrics.items():
             self.log(name, metric.compute(), prog_bar=True)
             metric.reset()
+            
+    def predict_dataloader(self):
+        return DataLoader(self.mnist_predict, batch_size=BATCH_SIZE)
 
 
 class SemSupModel(BaseModel):
