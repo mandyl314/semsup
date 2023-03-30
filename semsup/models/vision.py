@@ -7,7 +7,7 @@ import torchvision.models as models
 import torchmetrics
 
 from .core import BaseModel, BaseModelArgs, SemSupModel, SemSupModelArgs
-
+from sklearn.metrics import confusion_matrix
 
 @dataclass
 class ResNetSemSupArgs(SemSupModelArgs):
@@ -57,11 +57,15 @@ class ResNetSemSup(SemSupModel):
         self.metrics = {"val_acc": self.accuracy}
 
     def forward(self, batch, label_rep):
-        print("HERE22")
+        # print("HERE22")
         input_data, targets = batch
         input_rep = self.model(input_data)  # (bs, d_model)
         logits = input_rep @ label_rep  # (bs, n_class)
         loss = F.cross_entropy(input=logits, target=targets)
+        print(logits,loss)
+        # print()
+        cm = confusion_matrix(logits,targets)
+        print(cm)
         return logits, targets, loss
 
 
