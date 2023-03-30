@@ -57,6 +57,7 @@ class ResNetSemSup(SemSupModel):
         self.metrics = {"val_acc": self.accuracy}
 
     def forward(self, batch, label_rep):
+        print("HERE22")
         input_data, targets = batch
         input_rep = self.model(input_data)  # (bs, d_model)
         logits = input_rep @ label_rep  # (bs, n_class)

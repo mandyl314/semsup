@@ -77,7 +77,7 @@ if __name__ == "__main__":
                 # script that 
                 accuracies.append(output[0]["val_acc"])
             
-            pred = cfg.trainer.model(cfg.data)
+            # pred = cfg.trainer.model(cfg.data)
             # print(cfg.data)
             # pred = cfg.model(cfg.data)
             print(pred)
