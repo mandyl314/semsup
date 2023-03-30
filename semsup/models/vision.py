@@ -64,7 +64,7 @@ class ResNetSemSup(SemSupModel):
         loss = F.cross_entropy(input=logits, target=targets)
         print(logits,loss)
         # print()
-        cm = confusion_matrix(logits,targets)
+        cm = confusion_matrix(logits.cpu(),targets.cpu())
         print(cm)
         return logits, targets, loss
 
