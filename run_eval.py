@@ -68,6 +68,7 @@ if __name__ == "__main__":
     cfg.trainer = pl.Trainer(**args.trainer.as_dict())
 
     if args.checkpoints:
+        print("HERE0000")
         accuracies = []
         print(f"eval {len(args.checkpoints)} checkpoints")
         for ckpt in args.checkpoints:
@@ -88,5 +89,6 @@ if __name__ == "__main__":
             # print(pred)
         print(f"acc: {np.mean(accuracies)} +/- {np.std(accuracies)}")            
     else:
+        print("HERE111")
         output = cfg.trainer.validate(cfg.model, cfg.data, verbose=False)
         print(f"acc: {output[0]['val_acc']}")
