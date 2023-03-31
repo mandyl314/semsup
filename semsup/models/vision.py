@@ -65,7 +65,7 @@ class ResNetSemSup(SemSupModel):
         print("logits")
         print(logits.shape)
         
-        output = torch.argmax(logits, axis=0)
+        output = torch.argmax(logits, axis=1)
         print("output")
         print(output.shape)
         print(output)
