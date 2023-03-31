@@ -9,7 +9,7 @@ import torchmetrics
 from .core import BaseModel, BaseModelArgs, SemSupModel, SemSupModelArgs
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-torch.set_printoptions(threshold=torch.inf)
+torch.set_printoptions(threshold=10000)
 @dataclass
 class ResNetSemSupArgs(SemSupModelArgs):
     predict_strategy: str = None
