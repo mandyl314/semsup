@@ -75,8 +75,12 @@ if __name__ == "__main__":
             if cfg.validate:
                 output = cfg.trainer.validate(cfg.model, cfg.data, verbose=False)
                 # script that 
-                print("acc")
+                # print("acc")
                 accuracies.append(output[0]["val_acc"])
+                
+                # cfg.model(cfg.model, cfg.data)
+                
+                
             
             # pred = cfg.trainer.model(cfg.data)
             # print(cfg.data)
