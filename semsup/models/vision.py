@@ -9,7 +9,7 @@ import torchmetrics
 from .core import BaseModel, BaseModelArgs, SemSupModel, SemSupModelArgs
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-
+torch.set_printoptions(threshold=torch.inf)
 @dataclass
 class ResNetSemSupArgs(SemSupModelArgs):
     predict_strategy: str = None
@@ -81,6 +81,8 @@ class ResNetSemSup(SemSupModel):
         disp = ConfusionMatrixDisplay(confusion_matrix=cm)
         disp.plot()
         plt.show()
+        print(output)
+        print(targets)
         print("done")
         return logits, targets, loss
 
