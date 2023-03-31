@@ -64,8 +64,12 @@ class ResNetSemSup(SemSupModel):
         loss = F.cross_entropy(input=logits, target=targets)
         print("logits")
         print(logits.shape)
-        print("loss")
-        print(loss.shape)
+        
+        output = torch.argmax(logits, axis=0)
+        print("output")
+        print(output.shape)
+        print(output)
+        
         print("target")
         print(targets.shape)
         print(targets)
