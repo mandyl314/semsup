@@ -76,13 +76,13 @@ class ResNetSemSup(SemSupModel):
         # print(targets)
         # print("before cm")
         cm = confusion_matrix(output.cpu(),targets.cpu())
-        # print(cm)
+        print(cm)
         # print("after cm")
         disp = ConfusionMatrixDisplay(confusion_matrix=cm)
         disp.plot()
         plt.show()
         print(output)
-        print(targets)
+        # print(targets)
         print("done")
         return logits, targets, loss
 
