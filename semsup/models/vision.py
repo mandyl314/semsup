@@ -9,6 +9,7 @@ import torchmetrics
 from .core import BaseModel, BaseModelArgs, SemSupModel, SemSupModelArgs
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import seaborn as sns
 torch.set_printoptions(threshold=10000)
 @dataclass
 class ResNetSemSupArgs(SemSupModelArgs):
@@ -76,10 +77,12 @@ class ResNetSemSup(SemSupModel):
         # print(targets)
         # print("before cm")
         cm = confusion_matrix(output.cpu(),targets.cpu())
-        print(cm)
+        # print(cm)
         # print("after cm")
-        disp = ConfusionMatrixDisplay(confusion_matrix=cm)
-        disp.plot()
+        plt.figure(figsize=(10,7))
+        sns.heatmap(cm,annot=True,linewidths=1, fmt = 'd')
+        # disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+        # disp.plot()
         plt.show()
         print(output)
         # print(targets)
