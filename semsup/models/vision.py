@@ -79,7 +79,7 @@ class ResNetSemSup(SemSupModel):
         cm = confusion_matrix(output.cpu(),targets.cpu())
         # print(cm)
         # print("after cm")
-        plt.figure(figsize=(10,7))
+        # plt.figure(figsize=(10,7))
         sns.heatmap(cm,annot=True,linewidths=1, fmt = 'd')
         # disp = ConfusionMatrixDisplay(confusion_matrix=cm)
         # disp.plot()
