@@ -87,6 +87,7 @@ if __name__ == "__main__":
             # print(cfg.data)
             # pred = cfg.model(cfg.data)
             # print(pred)
+        print(accuracies)
         print(f"acc: {np.mean(accuracies)} +/- {np.std(accuracies)}")            
     else:
         print("HERE111")
