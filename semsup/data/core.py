@@ -49,8 +49,10 @@ class LabelDataset(IterableDataset):
 
     def __next__(self):
         fused = defaultdict(list)
+        print(self.classlabels.num_classes)
         for i in range(self.classlabels.num_classes):
             label = self.classlabels.int2str(i)
+            print(label)
             try:
                 print(self.label_to_idx)
                 choice = int(np.random.choice(self.label_to_idx[label]))
