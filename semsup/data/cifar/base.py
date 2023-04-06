@@ -118,6 +118,8 @@ class CIFAR100DataModule(SemSupDataModule):
                 transform=self.eval_transform,
             )
             self.dataset["test"] = self.test_dataset
+            print("IN DATASET setup")
+            print(self.dataset["test"])
 
         # make stratified split of train and val datasets
         train_idx, val_idx = train_test_split(
