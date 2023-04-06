@@ -66,28 +66,14 @@ class ResNetSemSup(SemSupModel):
         loss = F.cross_entropy(input=logits, target=targets)
         # print("logits")
         # print(logits.shape)
-        print(label_rep)
-        
-        output = torch.argmax(logits, axis=1)
-        print("output")
-        # print(output.shape)
-        print(output)
-        
-        print("target")
-        # print(targets.shape)
-        print(targets)
-        # print("before cm")
-        # cm = confusion_matrix(output.cpu(),targets.cpu())
-        # print(cm)
-        # print("after cm")
-        # plt.figure(figsize=(10,7))
-        # sns.heatmap(cm,annot=True,linewidths=1, fmt = 'd')
-        # disp = ConfusionMatrixDisplay(confusion_matrix=cm)
-        # disp.plot()
-        # plt.show()
+        # print(label_rep)
+        # output = torch.argmax(logits, axis=1)
+        # print("output")
         # print(output)
+        
+        # print("target")
         # print(targets)
-        print("done")
+        # print("done")
         return logits, targets, loss
 
 
