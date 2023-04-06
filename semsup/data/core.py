@@ -52,7 +52,6 @@ class LabelDataset(IterableDataset):
         for i in range(self.classlabels.num_classes):
             label = self.classlabels.int2str(i)
             try:
-                print(self.label_to_idx)
                 choice = int(np.random.choice(self.label_to_idx[label]))
             except:
                 raise Exception(f"no choice for label: {label}")
