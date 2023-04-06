@@ -2,7 +2,7 @@
 
 data_dir="./class_descrs/cifar"
 # data_dir="./class_descrs/class_descrs_russian/cifar"
-output="./class_descrs/class_descrs_spanish/cifar"
+output="./class_descrs/class_descrs_russian/cifar"
 # while true
 # do
     for entry in "$data_dir"/*
