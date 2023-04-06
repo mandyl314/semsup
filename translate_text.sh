@@ -1,8 +1,8 @@
 #!/bin/bash
 
-data_dir="./class_descrs/large_files"
+data_dir="./class_descrs/cifar"
 # data_dir="./class_descrs/class_descrs_russian/cifar"
-output="./class_descrs/class_descrs_spanish/awa/large_files"
+output="./class_descrs/class_descrs_spanish/cifar"
 # while true
 # do
     for entry in "$data_dir"/*
