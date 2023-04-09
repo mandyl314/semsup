@@ -49,12 +49,12 @@ class LabelDataset(IterableDataset):
 
     def __next__(self):
         fused = defaultdict(list)
-        print(self.classlabels.num_classes)
+        # print(self.classlabels.num_classes)
         for i in range(self.classlabels.num_classes):
             label = self.classlabels.int2str(i)
-            print(label)
+            # print(label)
             try:
-                print(self.label_to_idx)
+                # print(self.label_to_idx)
                 choice = int(np.random.choice(self.label_to_idx[label]))
             except:
                 raise Exception(f"no choice for label: {label}")
@@ -107,7 +107,6 @@ class SemSupDataArgs:
     val_label_cache_path: str = None
 
     def __post_init__(self):
-        print(self.train_label_json)
         assert Path(self.train_label_json).is_file()
         assert Path(self.cache_dir).is_dir()
         if self.val_label_json is not None:
