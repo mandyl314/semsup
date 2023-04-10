@@ -144,6 +144,7 @@ class NewsgroupsDataModule(SemSupDataModule):
                 )
             )
         combined = concatenate_datasets(dataset_list)
+        print(combined)
         dataset = datasets.DatasetDict()  # the dataset
         # make train-test split
         train_test = combined.train_test_split(
@@ -173,6 +174,10 @@ class NewsgroupsDataModule(SemSupDataModule):
         )
         if self.args.run_test:
             dataset["val"] = dataset["test"]
+            # print("CLass labels")
+            # print(self.all_classlabel.names)
+            # print([list((i, self.all_classlabel.names[i])) for i in range(len(self.all_classlabel.names))])
+       
         self.dataset = dataset
 
 

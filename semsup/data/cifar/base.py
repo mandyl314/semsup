@@ -119,8 +119,8 @@ class CIFAR100DataModule(SemSupDataModule):
             )
             self.dataset["test"] = self.test_dataset
             # print("CLass labels")
-            print(self.all_classlabel.names)
-            print([list((i, self.all_classlabel.names[i])) for i in range(len(self.all_classlabel.names))])
+            # print(self.all_classlabel.names)
+            # print([list((i, self.all_classlabel.names[i])) for i in range(len(self.all_classlabel.names))])
         # make stratified split of train and val datasets
         train_idx, val_idx = train_test_split(
             list(range(len(train_dataset))),
