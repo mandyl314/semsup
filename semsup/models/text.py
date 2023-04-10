@@ -64,6 +64,12 @@ class BertSemSup(SemSupModel):
         # print(input_rep.shape)
         logits = input_rep @ label_rep  # (bs, n_class)
         loss = F.cross_entropy(input=logits, target=targets)
+        output = torch.argmax(logits, axis=1)
+        print("output")
+        print(output)
+        
+        print("target")
+        print(targets)
         return logits, targets, loss
 
 
