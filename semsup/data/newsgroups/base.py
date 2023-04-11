@@ -144,7 +144,7 @@ class NewsgroupsDataModule(SemSupDataModule):
                 )
             )
         combined = concatenate_datasets(dataset_list)
-        print(self.args.classes)
+        # print(self.args.classes)
         dataset = datasets.DatasetDict()  # the dataset
         # make train-test split
         train_test = combined.train_test_split(

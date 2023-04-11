@@ -93,8 +93,6 @@ class BaseModel(pl.LightningModule):
             targets (Any): the targets
             loss (Any): the loss
         """
-        print("here in forward")
-        print(batch)
         raise NotImplementedError
 
     def step(self, batch):
