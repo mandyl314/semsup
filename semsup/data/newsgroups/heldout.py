@@ -55,6 +55,8 @@ class NewsgroupsHeldoutArgs(NewsgroupsDataArgs):
         if self.run_test:
             self.val_names = self.test_names
             self.val_classes = self.test_classes
+            print(self.val_names)
+            print(self.val_classes)
 
         if self.eval_train:
             self.val_names = self.train_classes
